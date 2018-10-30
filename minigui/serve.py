@@ -81,7 +81,7 @@ def _open_pipes():
                        "--load_file=%s" % FLAGS.model,
                        "--minigui_mode=true",
                        "--num_readouts=%d" % FLAGS.num_readouts,
-                       "--conv_width=128",
+                       "--conv_width=32",
                        "--resign_threshold=%f" % FLAGS.resign_threshold,
                        "--verbose=2"]
     else:

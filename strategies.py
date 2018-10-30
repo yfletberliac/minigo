@@ -41,7 +41,7 @@ flags.DEFINE_integer('num_readouts', 800,
                      'Number of searches to add to the MCTS search tree before playing a move.')
 flags.register_validator('num_readouts', lambda x: x > 0)
 
-flags.DEFINE_integer('parallel_readouts', 8,
+flags.DEFINE_integer('parallel_readouts', 48,
                      'Number of searches to execute in parallel. This is also the batch size'
                      'for neural network evaluation.')
 
