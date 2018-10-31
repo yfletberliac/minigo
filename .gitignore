@@ -17,6 +17,9 @@ saved_models/
 *~
 env/
 .idea/
+outputs/data
+outputs/sgf
+outputs/working_dir
 
 .mypy_cache
 
