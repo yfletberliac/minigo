@@ -38,6 +38,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   echo "MINIGUI_MODEL:        ${MINIGUI_MODEL}"
   echo "MINIGUI_MODEL_TMPDIR: ${MINIGUI_MODEL_TMPDIR}"
   echo "MINIGUI_BOARD_SIZE:   ${MINIGUI_BOARD_SIZE}"
+  echo "CONV_WIDTH:           ${CONV_WIDTH}"
   echo "MINIGUI_PORT:         ${MINIGUI_PORT}"
   echo "MINIGUI_HOST:         ${MINIGUI_HOST}"
 
@@ -68,8 +69,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     echo "Freezing model"
     echo "--------------------------------------------------"
 
-    BOARD_SIZE=$MINIGUI_BOARD_SIZE $MINIGUI_PYTHON main.py freeze-graph \
-        $model_path --conv_width=128
+    BOARD_SIZE=$MINIGUI_BOARD_SIZE $MINIGUI_PYTHON freeze_graph.py \
+        --model_path=$model_path --conv_width=${CONV_WIDTH}
   fi
 
   echo
@@ -84,5 +85,5 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   --port=$MINIGUI_PORT \
   --host=$MINIGUI_HOST \
   --python_for_engine=${MINIGUI_PYTHON} \
-  --engine=tf
+  --engine=py
 }

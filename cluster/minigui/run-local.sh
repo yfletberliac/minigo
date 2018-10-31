@@ -50,7 +50,7 @@ echo "IMAGE                 gcr.io/${PROJECT}/${MINIGUI_PY_CPU_CONTAINER}:${VERS
 echo
 
 if [[ -d "${MINIGUI_MODEL_TMPDIR}" ]]; then
-  docker run \
+  sudo docker run \
   -p 127.0.0.1:$MINIGUI_PORT:$MINIGUI_PORT \
   -e MINIGUI_MODEL="${MINIGUI_MODEL}" \
   -e MINIGUI_BOARD_SIZE="${MINIGUI_BOARD_SIZE}" \
@@ -59,7 +59,7 @@ if [[ -d "${MINIGUI_MODEL_TMPDIR}" ]]; then
   --mount type=bind,source="${MINIGUI_MODEL_TMPDIR}",target="${MINIGUI_MODEL_TMPDIR}" \
   --rm gcr.io/${PROJECT}/${MINIGUI_PY_CPU_CONTAINER}:${VERSION_TAG}
 else
-  docker run \
+  sudo docker run \
   -p 127.0.0.1:$MINIGUI_PORT:$MINIGUI_PORT \
   -e MINIGUI_MODEL="${MINIGUI_MODEL}" \
   -e MINIGUI_BOARD_SIZE="${MINIGUI_BOARD_SIZE}" \
